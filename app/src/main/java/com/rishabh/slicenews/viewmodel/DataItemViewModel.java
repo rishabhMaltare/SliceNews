@@ -3,12 +3,18 @@ package com.rishabh.slicenews.viewmodel;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.v7.graphics.Palette;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.rishabh.slicenews.R;
 import com.rishabh.slicenews.model.Article;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 /**
  * Created by Gregory Rasmussen on 7/26/17.
@@ -23,7 +29,7 @@ public class DataItemViewModel extends BaseObservable {
     }
 
     @BindingAdapter({"bind:imageUrl"})
-    public static void loadImage(ImageView view, String imageUrl) {
+    public static void loadImage(final ImageView view, String imageUrl) {
         if (TextUtils.isEmpty(imageUrl)) {
             imageUrl = null;
         }
@@ -31,7 +37,29 @@ public class DataItemViewModel extends BaseObservable {
                 .load(imageUrl)
                 .error(R.drawable.ic_launcher_foreground)
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(view);
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        assert view != null;
+                        view.setImageBitmap(bitmap);
+                        Palette.from(bitmap)
+                                .generate(new Palette.PaletteAsyncListener() {
+                                    @Override
+                                    public void onGenerated(Palette palette) {
+                                        ((View) view.getParent())
+                                                .setBackgroundColor(palette.getDominantColor(Color.WHITE));
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+                    }
+                });
     }
 
     public void setUp() {
@@ -45,6 +73,11 @@ public class DataItemViewModel extends BaseObservable {
     @Bindable
     public String getTitle() {
         return !TextUtils.isEmpty(article.getTitle()) ? article.getTitle() : "";
+    }
+
+    @Bindable
+    public String getDescription() {
+        return !TextUtils.isEmpty(article.getDescription()) ? article.getDescription() : "";
     }
 
     @Bindable

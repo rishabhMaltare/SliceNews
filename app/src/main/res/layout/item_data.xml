@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_height"
             android:layout_gravity="center"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/primary_dark"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="28sp"

@@ -9,7 +9,7 @@ public class Article {
 
     private String title;
 
-    private Object description;
+    private String description;
 
     private String url;
 
@@ -41,11 +41,11 @@ public class Article {
         this.title = title;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

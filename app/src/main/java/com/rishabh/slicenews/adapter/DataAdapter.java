@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.rishabh.slicenews.R;
-import com.rishabh.slicenews.databinding.ItemDataBinding;
+import com.rishabh.slicenews.databinding.ArticleItemBinding;
 import com.rishabh.slicenews.model.Article;
 import com.rishabh.slicenews.viewmodel.DataItemViewModel;
 
@@ -30,7 +30,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
 
     @Override
     public DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_data,
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.article_item,
                 new FrameLayout(parent.getContext()), false);
         return new DataViewHolder(itemView);
     }
@@ -69,7 +69,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     }
 
     static class DataViewHolder extends RecyclerView.ViewHolder {
-        ItemDataBinding binding;
+        ArticleItemBinding binding;
 
         DataViewHolder(View itemView) {
             super(itemView);

@@ -133,7 +133,6 @@ public class DataViewModel extends BaseObservable {
     }
 
     public void tearDown() {
-        // perform tear down tasks, such as removing listeners
     }
 
     @Bindable
@@ -181,13 +180,8 @@ public class DataViewModel extends BaseObservable {
 
     @Bindable
     public String getQueryHint() {
-        return queryHint;
+        return "Search Articles";
     }
-
-    //private void setQueryHint(String queryHint) {
-    //    this.queryHint = queryHint;
-    //    notifyPropertyChanged(BR._all);
-    //}
 
     public SearchView.OnQueryTextListener getOnQueryTextListener() {
         return onQueryTextListener;

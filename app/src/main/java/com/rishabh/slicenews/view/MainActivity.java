@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,8 +12,6 @@ import com.rishabh.slicenews.R;
 import com.rishabh.slicenews.databinding.ActivityMainBinding;
 import com.rishabh.slicenews.util.EndlessRecyclerOnScrollListener;
 import com.rishabh.slicenews.viewmodel.DataViewModel;
-
-import static android.support.v7.widget.RecyclerView.VERTICAL;
 
 public class MainActivity extends AppCompatActivity {
     private DataViewModel dataViewModel;
@@ -33,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.data_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), VERTICAL));
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {

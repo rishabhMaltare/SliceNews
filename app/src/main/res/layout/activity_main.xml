@@ -13,44 +13,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/activity_toolbar"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="0dp"-->
-        <!--android:layout_marginRight="0dp"-->
-        <!--android:layout_marginTop="0dp"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:title="@string/app_name"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:subtitleTextColor="@color/colorAccent"-->
-        <!--app:title="@string/app_name"-->
-        <!--app:titleTextColor="@color/colorAccent">-->
-        <!--<android.support.v7.widget.SearchView-->
-        <!--android:id="@+id/searchView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:iconifiedByDefault="false"-->
-        <!--android:queryHint="@{viewModel.queryHint}"-->
-        <!--app:iconifiedByDefault="false"-->
-        <!--app:query="@{viewModel.query}"-->
-        <!--app:queryTextListener="@{viewModel.onQueryTextListener}"/>-->
-        <!--</android.support.v7.widget.Toolbar>-->
-
-        <android.support.v7.widget.SearchView
-            android:id="@+id/searchView"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/activity_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:focusable="false"
-            android:layout_centerHorizontal="true"
-            android:iconifiedByDefault="false"
-            android:queryHint="@{viewModel.queryHint}"
-            app:iconifiedByDefault="false"
-            app:query="@{viewModel.query}"
-            app:queryTextListener="@{viewModel.onQueryTextListener}"/>
+            android:layout_height="54dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/primary_light"
+            android:title="@string/app_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="@color/accent"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/primary_text">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:focusable="false"
+                android:iconifiedByDefault="true"
+                android:queryHint="@{viewModel.queryHint}"
+                app:iconifiedByDefault="true"
+                app:query="@{viewModel.query}"
+                app:queryTextListener="@{viewModel.onQueryTextListener}"/>
+        </android.support.v7.widget.Toolbar>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/data_recycler_view"
@@ -58,7 +48,8 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/searchView"
+            android:layout_below="@id/activity_toolbar"
+            android:background="@color/divider"
             app:adapter="@{viewModel.adapter}"
             app:data="@{viewModel.data}"
             tools:context="com.rishabh.slicenews.view.MainActivity"/>
