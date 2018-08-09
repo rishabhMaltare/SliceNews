@@ -1,5 +1,6 @@
 package com.rishabh.slicenews.viewmodel;
 
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
@@ -13,16 +14,18 @@ import android.widget.ImageView;
 
 import com.rishabh.slicenews.R;
 import com.rishabh.slicenews.model.Article;
+import com.rishabh.slicenews.view.DetailActivity;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 /**
- * Created by Gregory Rasmussen on 7/26/17.
+ * Created by Rishabh on 04-08-2018.
  */
 
 public class DataItemViewModel extends BaseObservable {
 
     private Article article;
+    //public SingleLiveEvent navigateToDetails = new SingleLiveEvent();
 
     public DataItemViewModel(Article article) {
         this.article = article;
@@ -84,5 +87,14 @@ public class DataItemViewModel extends BaseObservable {
     public String getImageUrl() {
         return !TextUtils.isEmpty(article.getUrlToImage()) ? article.getUrlToImage() : "";
     }
+
+    public void goToDetails(View view) {
+        //navigateToDetails.call();
+        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.getUrl()));
+        Intent intent = new Intent(view.getContext(), DetailActivity.class);
+        intent.putExtra("Url", article.getUrl());
+        view.getContext().startActivity(intent);
+    }
+
 
 }

@@ -84,7 +84,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
 
         void unbind() {
             if (binding != null) {
-                binding.unbind(); // Don't forget to unbind
+                binding.unbind();
             }
         }
 

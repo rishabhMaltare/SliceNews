@@ -20,6 +20,7 @@
         android:layout_marginTop="12dp"
         android:background="@color/accent"
         android:elevation="2dp"
+        android:onClick="@{viewModel::goToDetails}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"

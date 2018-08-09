@@ -40,18 +40,17 @@ public class DataViewModel extends BaseObservable {
     private final SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            Log.d("Test", "query = " + query); // <- query is empty.
             filterNewsBasedOnTitle(query);
             return false;
         }
 
         @Override
         public boolean onQueryTextChange(String newText) {
-            Log.d(TAG, "onQueryTextChange: text = " + newText);
             filterNewsBasedOnTitle(newText);
             return false;
         }
     };
+
     private int page;
     private boolean latestFirst;
     private String query;

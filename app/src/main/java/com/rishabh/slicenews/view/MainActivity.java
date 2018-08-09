@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView(view);
     }
 
+
     private View getRootView() {
         return getBinding().getRoot();
     }
@@ -56,4 +57,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         dataViewModel.setUp();
     }
+
+
 }
